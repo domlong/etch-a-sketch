@@ -7,6 +7,9 @@ function createGrid(gridSize) {
         const div = document.createElement('div');
         container.appendChild(div);
     }
+
+    const div = container.querySelectorAll(':scope > *');
+    div.forEach(div => div.addEventListener('mouseenter', colourFill));
 }
 
 function colourFill() {
@@ -14,15 +17,21 @@ function colourFill() {
 }
 
 function resetGrid() {
-    div.forEach((div) => div.style.backgroundColor = 'transparent');
+    let sliderNum = document.querySelector('input').valueAsNumber;
+    const container = document.querySelector('.container');
+    while(container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+    }
+    createGrid(sliderNum);
 }
 
-let gridSize=64;
+function updateSliderLabel() {
+    let x = document.querySelector('input').valueAsNumber;
+    document.querySelector('label').innerHTML = x;
+}
+
+let gridSize=16;
 createGrid(gridSize);
 
-const container = document.querySelector('.container');
-const div = container.querySelectorAll(':scope > *');
 const button = document.querySelector('button')
-
-div.forEach(div => div.addEventListener('mouseenter', colourFill));
 button.addEventListener('click',resetGrid)

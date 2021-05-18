@@ -7,8 +7,9 @@
 </head>
 <body>
     <div class='controls'>
-        <button>Reset</button>
-        <input type="range" value='size'>
+        <button>Reset Grid</button>
+        <input oninput="updateSliderLabel()" type="range" step='4' min='4' value='16'>
+        <label for="slider">16</label>
     </div>
     <div class='container'></div>
     <script src='script.js'></script>
