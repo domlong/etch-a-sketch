@@ -13,7 +13,21 @@ function createGrid(gridSize) {
 }
 
 function colourFill() {
-    this.style.backgroundColor = 'black';
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+    if (this.style.backgroundColor === '') {
+        this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        this.style.filter = 'brightness(100%)';
+    }
+    else {
+        this.style.filter = jankyReduceBrightness(this.style.filter, 10);
+    }
+}
+
+function jankyReduceBrightness(filter, amount) {
+    let brightness = parseInt(filter.match(/\d+/));
+    return `brightness(${brightness - amount}%)`;
 }
 
 function resetGrid() {
