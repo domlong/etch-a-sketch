@@ -41,7 +41,7 @@ function resetGrid() {
 
 function updateSliderLabel() {
     let x = document.querySelector('input').valueAsNumber;
-    document.querySelector('label').innerHTML = x;
+    document.querySelector('label').innerHTML = `Grid size: ${x}`;
 }
 
 let gridSize=16;

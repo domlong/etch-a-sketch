@@ -6,10 +6,11 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
+    <h1>Etch A Sketch</h1>
     <div class='controls'>
         <button>Reset Grid</button>
-        <input oninput="updateSliderLabel()" type="range" step='4' min='4' value='16'>
-        <label for="slider">16</label>
+        <input oninput="updateSliderLabel()" id='slider' type="range" step='4' min='4' value='16'>
+        <label for="slider">Grid size: 16</label>
     </div>
     <div class='container'></div>
     <script src='script.js'></script>
